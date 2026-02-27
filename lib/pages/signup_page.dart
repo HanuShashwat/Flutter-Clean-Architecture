@@ -12,18 +12,26 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: .center,
-        children: [
-          Text(
-            'Sign Up.',
-            style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: .center,
+          children: [
+            Text(
+              'Sign Up.',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold
+              ),
             ),
-          ),
-          AuthField(hintText: 'Email'),
-        ],
+            const SizedBox(height: 32,),
+            AuthField(hintText: 'Name'),
+            const SizedBox(height: 16,),
+            AuthField(hintText: 'Email'),
+            const SizedBox(height: 16,),
+            AuthField(hintText: 'Password'),
+          ],
+        ),
       ),
     );
   }
