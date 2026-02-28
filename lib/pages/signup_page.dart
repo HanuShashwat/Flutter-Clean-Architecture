@@ -11,46 +11,75 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // formKey.currentState!.validate();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [
-            Text(
-              'Sign Up.',
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisAlignment: .center,
+            children: [
+              Text(
+                'Sign Up.',
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold
+                ),
               ),
-            ),
-            const SizedBox(height: 32,),
-            const AuthField(hintText: 'Name'),
-            const SizedBox(height: 16,),
-            const AuthField(hintText: 'Email'),
-            const SizedBox(height: 16,),
-            const AuthField(hintText: 'Password'),
-            const SizedBox(height: 20,),
-            const AuthGradientButton(),
-            const SizedBox(height: 20,),
-            RichText(
-              text: TextSpan(
-                text: "Already have an account?",
-                style: Theme.of(context).textTheme.titleMedium,
-                children: [
-                  TextSpan(
-                    text: ' Sign In',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: AppPallete.gradient2,
-                      fontWeight: FontWeight.bold
+              const SizedBox(height: 32,),
+              AuthField(
+                hintText: 'Name',
+                controller: nameController,
+              ),
+              const SizedBox(height: 16,),
+              AuthField(
+                hintText: 'Email',
+                controller: emailController,
+              ),
+              const SizedBox(height: 16,),
+              AuthField(
+                hintText: 'Password',
+                controller: passwordController,
+                isPassword: true,
+              ),
+              const SizedBox(height: 20,),
+              const AuthGradientButton(
+                buttonText: 'Sign Up',
+              ),
+              const SizedBox(height: 20,),
+              RichText(
+                text: TextSpan(
+                  text: "Already have an account?",
+                  style: Theme.of(context).textTheme.titleMedium,
+                  children: [
+                    TextSpan(
+                      text: ' Sign In',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: AppPallete.gradient2,
+                        fontWeight: FontWeight.bold
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
