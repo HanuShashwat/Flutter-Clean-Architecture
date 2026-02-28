@@ -1,9 +1,13 @@
+import 'package:blog_app/pages/signup_page.dart';
 import 'package:blog_app/theme/app_pallete.dart';
 import 'package:blog_app/widgets/auth_field.dart';
 import 'package:flutter/material.dart';
 import '../widgets/auth_gradient_button.dart';
 
 class LoginPage extends StatefulWidget {
+  static route() => MaterialPageRoute(
+    builder: (context) => const SignupPage(),
+  );
   const LoginPage({super.key});
 
   @override
@@ -56,19 +60,27 @@ class _SignupPageState extends State<LoginPage> {
                 buttonText: 'Sign In',
               ),
               const SizedBox(height: 20,),
-              RichText(
-                text: TextSpan(
-                  text: "Don't have an account?",
-                  style: Theme.of(context).textTheme.titleMedium,
-                  children: [
-                    TextSpan(
-                      text: ' Sign Up',
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: AppPallete.gradient2,
-                          fontWeight: FontWeight.bold
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    LoginPage.route(),
+                  );
+                },
+                child: RichText(
+                  text: TextSpan(
+                    text: "Don't have an account?",
+                    style: Theme.of(context).textTheme.titleMedium,
+                    children: [
+                      TextSpan(
+                        text: ' Sign Up',
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: AppPallete.gradient2,
+                            fontWeight: FontWeight.bold
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
