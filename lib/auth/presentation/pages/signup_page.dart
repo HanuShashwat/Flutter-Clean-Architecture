@@ -1,8 +1,8 @@
-import 'package:blog_app/pages/login_page.dart';
 import 'package:blog_app/theme/app_pallete.dart';
-import 'package:blog_app/widgets/auth_field.dart';
 import 'package:flutter/material.dart';
+import '../widgets/auth_field.dart';
 import '../widgets/auth_gradient_button.dart';
+import 'login_page.dart';
 
 class SignupPage extends StatefulWidget {
   static route() => MaterialPageRoute(
