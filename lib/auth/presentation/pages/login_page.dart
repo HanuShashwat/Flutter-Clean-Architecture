@@ -1,6 +1,6 @@
 import 'package:blog_app/auth/presentation/pages/signup_page.dart';
-import 'package:blog_app/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_pallete.dart';
 import '../widgets/auth_field.dart';
 import '../widgets/auth_gradient_button.dart';
 
