@@ -3,8 +3,11 @@ import '../../../core/theme/app_pallete.dart';
 
 class AuthGradientButton extends StatelessWidget {
   final String buttonText;
+  final VoidCallback? onPressed;
+
   const AuthGradientButton({
     required this.buttonText,
+    required this.onPressed,
     super.key,
   });
 
@@ -21,10 +24,12 @@ class AuthGradientButton extends StatelessWidget {
           begin: .bottomLeft,
           end: .topRight,
         ),
-        borderRadius: .circular(8)
+        borderRadius: .circular(8),
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          onPressed;
+        },
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(395, 55),
           backgroundColor: AppPallete.transparentColor,
@@ -32,10 +37,7 @@ class AuthGradientButton extends StatelessWidget {
         ),
         child: Text(
           buttonText,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: .w600,
-          ),
+          style: TextStyle(fontSize: 16, fontWeight: .w600),
         ),
       ),
     );
