@@ -4,10 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/theme/app_pallete.dart';
 import '../widgets/auth_field.dart';
 import '../widgets/auth_gradient_button.dart';
-import 'login_page.dart';
 
 class SignupPage extends StatefulWidget {
-  static route() => MaterialPageRoute(builder: (context) => const LoginPage());
+  static route() => MaterialPageRoute(builder: (context) => const SignupPage());
 
   const SignupPage({super.key});
 
