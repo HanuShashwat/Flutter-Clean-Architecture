@@ -1,5 +1,5 @@
-import 'package:blog_app/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:blog_app/auth/domain/auth_repository.dart';
+import 'package:blog_app/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:blog_app/features/auth/domain/auth_repository.dart';
 import 'package:blog_app/core/error/exceptions.dart';
 import 'package:blog_app/core/error/failures.dart';
 import 'package:fpdart/fpdart.dart';

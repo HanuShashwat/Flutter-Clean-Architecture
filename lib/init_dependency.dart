@@ -1,11 +1,12 @@
-import 'package:blog_app/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:blog_app/auth/data/repositories/auth_repo_impl.dart';
-import 'package:blog_app/auth/domain/auth_repository.dart';
-import 'package:blog_app/auth/domain/usecases/user_sign_up.dart';
-import 'package:blog_app/auth/presentation/bloc/auth_bloc.dart';
+import 'package:blog_app/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:blog_app/features/auth/data/repositories/auth_repo_impl.dart';
+import 'package:blog_app/features/auth/domain/auth_repository.dart';
+import 'package:blog_app/features/auth/domain/usecases/user_sign_up.dart';
 import 'package:blog_app/core/secrets/app_secrets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import 'features/auth/presentation/bloc/auth_bloc.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -24,7 +25,7 @@ void _initAuth() {
       supabaseClient: serviceLocator<SupabaseClient>(),
     ),
   );
-  serviceLocator.registerFactory(
+  serviceLocator.registerFactory<AuthRepository>(
     () => AuthRepoImpl(serviceLocator<AuthRemoteDataSource>()),
   );
   serviceLocator.registerFactory(

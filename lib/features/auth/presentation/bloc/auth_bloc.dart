@@ -1,4 +1,4 @@
-import 'package:blog_app/auth/domain/usecases/user_sign_up.dart';
+import 'package:blog_app/features/auth/domain/usecases/user_sign_up.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
