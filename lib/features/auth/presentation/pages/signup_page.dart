@@ -1,3 +1,4 @@
+import 'package:blog_app/core/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/common/widgets/loader.dart';
@@ -38,7 +39,9 @@ class _SignupPageState extends State<SignupPage> {
         padding: const EdgeInsets.all(16.0),
         child: BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state) {
-            if (state is AuthFailure) {}
+            if (state is AuthFailure) {
+              showSnackBar(context, state.message);
+            }
           },
           builder: (context, state) {
             if (state is AuthLoading) {
