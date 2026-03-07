@@ -38,7 +38,7 @@ class _SignupPageState extends State<SignupPage> {
         padding: const EdgeInsets.all(16.0),
         child: BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state) {
-            // TODO: implement listener
+            if (state is AuthFailure) {}
           },
           builder: (context, state) {
             if (state is AuthLoading) {
